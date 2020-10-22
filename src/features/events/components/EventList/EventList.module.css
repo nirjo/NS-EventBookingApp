@@ -1,0 +1,24 @@
+.EventList {
+	border:1px solid black;
+	/* for flex box start*/
+	  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  /* background-color: #2196F3; */
+  padding: 10px;
+	/* for flex box end*/
+	
+}
+@media only screen and (max-device-width: 480px) {
+.EventList {
+	border:1px solid black;
+	/* for flex box start*/
+	  display: grid;
+  grid-template-columns: auto ;
+  grid-gap: 10px;
+  /* background-color: #2196F3; */
+  padding: 10px;
+	/* for flex box end*/
+	
+}
+ }

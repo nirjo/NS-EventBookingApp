@@ -1,0 +1,10 @@
+.EventBookingFormHeader {
+	text-align:center;
+}
+.event_name{
+	font-size:24px;
+}
+.BookingSavedMsg{
+	font-size:10px;
+	color:green;
+}

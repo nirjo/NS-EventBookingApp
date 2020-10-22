@@ -1,0 +1,7 @@
+.EventBookingFormWindow {
+	
+	border:1px solid black;
+	/* for flex box start*/
+	  display: grid;
+  grid-template-rows: auto auto;
+}

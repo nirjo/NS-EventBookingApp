@@ -1,0 +1,9 @@
+.EventShortDescContainer {
+	
+		border:1px solid black;
+		
+		  display: flex;
+  flex-wrap: nowrap;
+  height:80%;
+  /* background-color: DodgerBlue; */
+}
