@@ -1,2 +1,0 @@
-# NS-EventBookingApp
-EventBookingApp
