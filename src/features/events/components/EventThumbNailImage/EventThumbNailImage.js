@@ -12,8 +12,5 @@ const EventThumbNailImage = (props) => {
 );
 }
 
-EventThumbNailImage.propTypes = {};
-
-EventThumbNailImage.defaultProps = {};
 
 export default EventThumbNailImage;

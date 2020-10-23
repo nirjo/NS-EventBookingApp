@@ -1,15 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import styles from './EventTitle.module.css';
+import styled from "styled-components";
 
-const EventTitle = (props) => (
-  <div className={styles.EventTitle}>
-	  {props.event_name}
-  </div>
-);
-
-EventTitle.propTypes = {};
-
-EventTitle.defaultProps = {};
+const Wrapper = styled.section`
+  background: palevioletred;
+`;
+const Title = styled.h1`
+  font-size: 1em;
+  text-align: center;
+  color: blueviolet;
+`;
+const EventTitle = (props) => {
+  return (
+    <Wrapper>
+      <Title>{props.event_name}</Title>
+    </Wrapper>
+  );
+};
 
 export default EventTitle;
