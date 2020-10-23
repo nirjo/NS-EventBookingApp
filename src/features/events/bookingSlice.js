@@ -4,7 +4,9 @@ import {
   createEntityAdapter,
   createSelector,
 } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
 import { client } from '../../api/client'
+
 const bookingAdapter = createEntityAdapter({
   
 })
@@ -12,7 +14,8 @@ const initialState = bookingAdapter.getInitialState({
   status: 'idle',
   error: null,
   save_status : 'pending',
-  last_insert_booking_id : null
+  id_to_log:null
+
 })
 export const addNewBooking = createAsyncThunk(
   'addNewBooking/booking',
@@ -31,26 +34,14 @@ export const bookingSlice = createSlice({
   name: 'booking',
   initialState,
   reducers: {
-	 test: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-   
-	 
-    },
+	
 	setSaveStatusToPending(state,action) {
       state.save_status = 'pending'
     },
     setSaveStatusToCompleted(state,action) {
       state.save_status = 'completed'
     },
-	 getLastInsertBooking(state,action) {
-		 if(state.last_insert_booking_id!=null)
-			return selectBookingById(state.last_insert_booking_id);
-		else 
-			return null;
-    },
+	 
 	},
 	
   extraReducers: {
@@ -76,19 +67,21 @@ export const bookingSlice = createSlice({
 		
 		   bookingAdapter.addOne(state,action.payload);
 		    state.save_status = 'succeeded'	 
-			state.last_insert_booking_id = action.payload.id
-			console.log("Saved Data:")
-			console.log(action.payload)
+			state.id_to_log= action.payload.id
+			console.log(">>>>>>>>>>>>>>"+state.id_to_log);
+			
+			
 	 }
      
    
   }
 });
-export const { test,setSaveStatusToPending,setSaveStatusToCompleted,getLastInsertBooking  } = bookingSlice.actions;
+export const { setSaveStatusToPending,setSaveStatusToCompleted  } = bookingSlice.actions;
 export const {
   selectAll: selectAllBooking   ,
   selectById: selectBookingById,
 } = bookingAdapter.getSelectors((state) => state.booking)
+
 
 export const selectBookingByEventId = createSelector(
   [selectAllBooking, (state, event_id) => event_id],
@@ -100,6 +93,26 @@ export const selectBookingByEventId = createSelector(
 		return booking.filter((a_booking) => a_booking.event_id === event_id )		
 	}
 	  
+  }
+  
+)
+
+export const getBookToLog = createSelector(
+  [selectAllBooking, (state)=>{console.log("---------------- "+state.booking.id_to_log);console.log(state);return state.booking.id_to_log;}],
+  (booking,id_to_log) => {
+
+	  // console.log(state)
+	  console.log(booking)
+	  console.log(id_to_log)
+		var ret = 0;
+		if(booking===undefined|| id_to_log===undefined ||id_to_log===null)
+			return 0;
+		else{
+			return booking.filter((a_booking) => a_booking.id === id_to_log )
+		
+		}
+	
+	 
   }
   
 )

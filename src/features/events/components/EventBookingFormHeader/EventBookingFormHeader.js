@@ -1,17 +1,19 @@
 import React,{ useState } from 'react';
 
 import styles from './EventBookingFormHeader.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import {getBookedSeatCountByEvent,setSaveStatusToCompleted } from '../../bookingSlice';
-
+import { logData } from '../../logSlice'
 const EventBookingFormHeader = (props) => {
 	const booking_save_status = useSelector((state) => {return state.booking.save_status})
 	const [bookingSaveMessage, setBookingSaveMessage] = useState("");
+	const distpatch= useDispatch()
 	
 	
 	if(booking_save_status==="succeeded"  && bookingSaveMessage===""){
 			 setBookingSaveMessage("Note: Booking Saved!!")
-			 setSaveStatusToCompleted()
+			 distpatch(logData({"hi":"nothing"}))
+			 
 	}
 	else if(booking_save_status==="pending" && bookingSaveMessage!=="")
 		setBookingSaveMessage("")

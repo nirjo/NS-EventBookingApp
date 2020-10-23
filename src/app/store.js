@@ -4,6 +4,7 @@ import counterReducer from '../features/counter/counterSlice';
 import eventsSlice from '../features/events/eventsSlice';
 import searchSlice from '../features/events/searchSlice';
 import bookingSlice from '../features/events/bookingSlice';
+import logSlice from '../features/events/logSlice';
 
 export default configureStore({
   reducer: {
@@ -11,5 +12,6 @@ export default configureStore({
     events: eventsSlice,
     booking: bookingSlice,
     search: searchSlice,
+    log: logSlice,
   },
 });

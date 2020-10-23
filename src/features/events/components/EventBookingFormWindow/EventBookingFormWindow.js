@@ -10,11 +10,11 @@ import { withRouter } from "react-router-dom";
 
 const EventBookingFormWindow  = (props) => {
 	
-
+	
 	const dispatch= useDispatch()
 	dispatch(setSaveStatusToPending())
 
-	 const an_event = useSelector((state) => selectEventById(state,  props.match.params.event_id))
+	 const an_event = useSelector((state) => selectEventById(state,props.match.params.event_id))
 	 
 	return (
 	  <div className={styles.EventBookingFormWindow} data-testid="EventBookingFormWindow">

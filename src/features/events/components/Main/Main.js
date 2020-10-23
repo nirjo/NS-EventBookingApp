@@ -7,10 +7,9 @@ const Main = () =>{
 	
 	return (
 
-
-		<div className={styles.Main} data-testid="Main">
-        <EventListContainer />
-		</div>
+	<div className={styles.Main} data-testid="Main">
+	<EventListContainer />
+	</div>
 );
 }
 
