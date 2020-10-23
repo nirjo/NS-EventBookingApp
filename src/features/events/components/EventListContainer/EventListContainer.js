@@ -24,7 +24,6 @@ const EventListContainer = (props) => {
 	
 	return (
   <div className={styles.EventListContainer} >
-    EventListContainer Component
 	<EventSeacrhContainer onSearchStringChanged={onSearchStringChanged} />
 	<EventList events={fetchedEvents} />
   </div>

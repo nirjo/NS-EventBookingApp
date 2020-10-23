@@ -42,8 +42,7 @@ const EventSeacrhContainer = (props) => {
 		<Wrapper>
 		<Container>
 		<Title>
-		<input type="text" placeholder = {"SEARCH EVENTS"} onChange={onSearchStringChanged} inputColor="rebeccapurple" />
-
+		<Input defaultValue="SELECT EVENT" type="text"  onChange={onSearchStringChanged} inputColor="rebeccapurple" />
 		</Title>
 		</Container>
 		</Wrapper>
