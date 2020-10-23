@@ -17,8 +17,6 @@ const EventBookingFormBodyInner = (props) => {
 	)
 };
 
-EventBookingFormBodyInner.propTypes = {};
 
-EventBookingFormBodyInner.defaultProps = {};
 
 export default EventBookingFormBodyInner;

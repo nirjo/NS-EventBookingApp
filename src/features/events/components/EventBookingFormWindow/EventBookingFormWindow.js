@@ -7,7 +7,23 @@ import {   selectEventById} from '../../eventsSlice' ;
 import {   setSaveStatusToPending} from '../../bookingSlice' ;
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from "react-router-dom";
+import styled from 'styled-components';
+const Wrapper = styled.section `
+  background: papayawhip;
+`;
+const Title = styled.h1 `
+  font-size: 0em;
+  text-align:center;
+  color: blueviolet; 
+  
+`;
 
+
+const Container = styled.div `
+   width: 1280px;
+   min-width: 1280px;
+   margin: 0 auto;
+`;
 const EventBookingFormWindow  = (props) => {
 	
 	
@@ -18,10 +34,13 @@ const EventBookingFormWindow  = (props) => {
 	 
 	return (
 	  <div className={styles.EventBookingFormWindow} data-testid="EventBookingFormWindow">
-		
+		<Wrapper>
+		<Container>
 		<EventBookingFormHeader event_item={an_event} />
 		<EventBookingFormBody event_item={an_event}/>
-	  </div>
+		</Container>
+		</Wrapper>
+		</div>
 	);
 }
 EventBookingFormWindow.propTypes = {};

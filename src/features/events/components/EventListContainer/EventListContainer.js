@@ -5,9 +5,19 @@ import EventList from '../EventList/EventList';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {searchChanged } from '../../searchSlice';
-
-
 import {  selectEventsByQuery } from '../../eventsSlice' ;
+
+import styled from 'styled-components';
+
+const Container = styled.div`
+   width: 1280px;
+   min-width: 1280px;
+   /* height: 1280px;
+   min-height: 300px; */
+   margin: 0 auto;
+   background: papayawhip ;
+`;
+
 const EventListContainer = (props) => {
 	const dispatch =useDispatch();
 	
@@ -23,11 +33,10 @@ const EventListContainer = (props) => {
 	
 	
 	return (
-  <div className={styles.EventListContainer} >
-    EventListContainer Component
+		<Container>
 	<EventSeacrhContainer onSearchStringChanged={onSearchStringChanged} />
 	<EventList events={fetchedEvents} />
-  </div>
+	</Container>
 )};
 
 EventListContainer.propTypes = {};
