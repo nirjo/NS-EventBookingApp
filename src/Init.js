@@ -4,6 +4,8 @@ import {  useSelector,useDispatch } from 'react-redux';
 import {BrowserRouter as Router,  Switch,Route} from "react-router-dom";
 import Main from './features/events/components/Main/Main';
 import EventBookingFormWindow from './features/events/components/EventBookingFormWindow/EventBookingFormWindow';
+import EventNavbar from './features/events/components/EventNavbar/EventNavbar';
+
 import {   fetchEvents} from './features/events/eventsSlice' ;
 import {   fetchBooking} from './features/events/bookingSlice' ;
 
@@ -28,9 +30,13 @@ function Init() {
   <Switch>
 		<Route path="/book-event/:event_id">
             <EventBookingFormWindow />
+		  </Route>
+		  <Route path="/EventNavbar">
+            <EventNavbar />
           </Route>
           <Route path="">
 			 <div>
+			 <EventNavbar />
 				<Main />
 			</div>
           </Route>
