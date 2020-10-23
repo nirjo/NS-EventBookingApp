@@ -8,9 +8,10 @@ const EventBookingFormHeader = (props) => {
 	const booking_save_status = useSelector((state) => {return state.booking.save_status})
 	const [bookingSaveMessage, setBookingSaveMessage] = useState("");
 	
+	
 	if(booking_save_status==="succeeded"  && bookingSaveMessage===""){
 			 setBookingSaveMessage("Note: Booking Saved!!")
-			 setSaveStatusToCompleted("completed")
+			 setSaveStatusToCompleted()
 	}
 	else if(booking_save_status==="pending" && bookingSaveMessage!=="")
 		setBookingSaveMessage("")

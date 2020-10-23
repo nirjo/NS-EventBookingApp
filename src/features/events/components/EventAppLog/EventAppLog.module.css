@@ -1,0 +1,13 @@
+.EventAppLog { 
+	border:1px solid red;
+	
+
+}
+.logText{
+ overflow-y: scroll;
+ 
+}
+.logText p{
+ 
+ color:green;
+}

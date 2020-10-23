@@ -11,7 +11,8 @@ const bookingAdapter = createEntityAdapter({
 const initialState = bookingAdapter.getInitialState({
   status: 'idle',
   error: null,
-  save_status : 'pending'
+  save_status : 'pending',
+  last_insert_booking_id : null
 })
 export const addNewBooking = createAsyncThunk(
   'addNewBooking/booking',
@@ -42,7 +43,13 @@ export const bookingSlice = createSlice({
       state.save_status = 'pending'
     },
     setSaveStatusToCompleted(state,action) {
-      state.save_status = 'pending'
+      state.save_status = 'completed'
+    },
+	 getLastInsertBooking(state,action) {
+		 if(state.last_insert_booking_id!=null)
+			return selectBookingById(state.last_insert_booking_id);
+		else 
+			return null;
     },
 	},
 	
@@ -69,7 +76,7 @@ export const bookingSlice = createSlice({
 		
 		   bookingAdapter.addOne(state,action.payload);
 		    state.save_status = 'succeeded'	 
-			
+			state.last_insert_booking_id = action.payload.id
 			console.log("Saved Data:")
 			console.log(action.payload)
 	 }
@@ -77,7 +84,7 @@ export const bookingSlice = createSlice({
    
   }
 });
-export const { test,setSaveStatusToPending,setSaveStatusToCompleted  } = bookingSlice.actions;
+export const { test,setSaveStatusToPending,setSaveStatusToCompleted,getLastInsertBooking  } = bookingSlice.actions;
 export const {
   selectAll: selectAllBooking   ,
   selectById: selectBookingById,

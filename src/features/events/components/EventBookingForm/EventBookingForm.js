@@ -3,7 +3,6 @@ import {getBookedSeatCountByEvent,addNewBooking } from '../../bookingSlice';
 // import {getBookedSeatCountByEvent,addNewBooking } from '../../bookingSlice';
 import { useSelector,useDispatch } from 'react-redux';
 import styles from './EventBookingForm.module.css';
-
  
  
 const EventBookingForm = (props) => {
