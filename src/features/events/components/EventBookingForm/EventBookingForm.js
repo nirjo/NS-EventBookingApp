@@ -8,6 +8,20 @@ import styles from './EventBookingForm.module.css';
 const EventBookingForm = (props) => {
 	const [inputList, setInputList] = useState([]);
 	const dispatch = useDispatch()
+	const booking_save_status = useSelector((state) => {return state.booking.save_status})
+	
+
+	
+	const renderButtonRow  =()=>{
+	
+		if(booking_save_status==="succeeded")
+			return <div id="buttonDiv" className={styles.formRow} ><div className={styles.buttonDivLeft}>	<a className= {styles.buttonLinkDisabled} onClick={submitClicked} href="/">Submit</a></div><div  className={styles.buttonDivRight}><a className={styles.buttonLinkDisabled}  href="/">Cancel</a></div></div>
+		
+		else
+			return <div id="buttonDiv" className={styles.formRow} ><div className={styles.buttonDivLeft}>	<a className= {styles.buttonLink} onClick={submitClicked} href="/">Submit</a></div><div  className={styles.buttonDivRight}><a className={styles.buttonLink}  href="/">Cancel</a></div></div>
+		
+	
+	}
 	const updateNumberOfTextBox = () =>{
 		
 	 const x =  inputList.map((number) =>
@@ -85,7 +99,7 @@ const EventBookingForm = (props) => {
 				"participants":participants
 			}
 			  
-			  const resultAction = await dispatch(
+			 await dispatch(
 			  addNewBooking(payload)
 			)
 		}
@@ -123,7 +137,7 @@ const EventBookingForm = (props) => {
 		<div className={styles.formRow} ><div className={styles.formLabel}>Name Of attendees : </div><div className={styles.formInput}><input type="text"/></div></div>
 			*/}
 		
-		<div id="buttonDiv" className={styles.formRow} ><div className={styles.buttonDivLeft}><a className= {styles.buttonLink} onClick={submitClicked} href="/">Submit</a></div><div  className={styles.buttonDivRight}><a className= {styles.buttonLink}href="/">Cancel</a></div></div>
+		{renderButtonRow()}
   </div>
 	);
 }

@@ -11,9 +11,10 @@ const bookingAdapter = createEntityAdapter({
 const initialState = bookingAdapter.getInitialState({
   status: 'idle',
   error: null,
+  save_status : 'pending'
 })
 export const addNewBooking = createAsyncThunk(
-  'booking/addNewBooking',
+  'addNewBooking/booking',
   async (booking) => {
     const response = await client.post('https://events-api-nir-2k20.herokuapp.com/booking', booking)
     return response
@@ -22,7 +23,7 @@ export const addNewBooking = createAsyncThunk(
 
 export const fetchBooking = createAsyncThunk('fetch/booking', async () => {
   const response = await client.get('https://events-api-nir-2k20.herokuapp.com/booking')
- // console.log(response)
+ 
   return response
 })
 export const bookingSlice = createSlice({
@@ -40,7 +41,9 @@ export const bookingSlice = createSlice({
 	setSaveStatusToPending(state,action) {
       state.save_status = 'pending'
     },
-    
+    setSaveStatusToCompleted(state,action) {
+      state.save_status = 'pending'
+    },
 	},
 	
   extraReducers: {
@@ -50,8 +53,8 @@ export const bookingSlice = createSlice({
     [fetchBooking.fulfilled]: (state, action) => {
       state.status = 'succeeded'	 
 	   bookingAdapter.upsertMany(state, action.payload)
-	
-	
+	  
+		
     },
     [fetchBooking.rejected]: (state, action) => {
       state.status = 'failed'
@@ -60,17 +63,21 @@ export const bookingSlice = createSlice({
 	  
     },
 	
-     [addNewBooking.fulfilled]: bookingAdapter.addOne,
-     [addNewBooking.fulfilled]: (state, action) => {
-      state.save_status = 'succeeded'
-
+     // [addNewBooking.fulfilled]: bookingAdapter.addOne,
+     [addNewBooking.fulfilled]: (state,  action)=>{
+		 
+		
+		   bookingAdapter.addOne(state,action.payload);
+		    state.save_status = 'succeeded'	 
+			
+			console.log("Saved Data:")
+			console.log(action.payload)
+	 }
      
-	  
-    },
    
   }
 });
-export const { test,setSaveStatusToPending  } = bookingSlice.actions;
+export const { test,setSaveStatusToPending,setSaveStatusToCompleted  } = bookingSlice.actions;
 export const {
   selectAll: selectAllBooking   ,
   selectById: selectBookingById,
