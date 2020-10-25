@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './Main.module.css';
 import EventListContainer from '../EventListContainer/EventListContainer';
+import EventNavbar from '../EventNavbar/EventNavbar';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -18,8 +19,12 @@ const Container = styled.div`
 const Main = () =>{
 	
 	return (
+
+   
 <Wrapper>
+
 <Container>
+<EventNavbar />
 	<EventListContainer />
 </Container>
 	</Wrapper>

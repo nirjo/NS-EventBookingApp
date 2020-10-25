@@ -1,9 +1,9 @@
 .EventListItem {
 	/* IMPORTANT is fixed height a problem */
-	height:200px;
+	height:250px;
 	/* IMPORTANT is fixed height a problem */
 	
-	border:1px solid red;
+	/* border:1px solid red; */
 	/*  ground-color: #f1f1f1; */
 	
 	/* for flex box start*/

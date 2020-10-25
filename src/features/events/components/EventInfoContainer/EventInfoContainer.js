@@ -2,11 +2,24 @@ import React from 'react';
 
 import EventInfos from '../EventInfos/EventInfos';
 import styles from './EventInfoContainer.module.css';
-const EventInfoContainer = (props) => (
-  <div  className={styles.EventInfoContainer}>
+
+import styled from 'styled-components';
+const Wrapper = styled.section `
+  background: palevioletred;
+`;
+const Title = styled.h1 `
+  font-size: 1em;
+ 
+  color: blueviolet; 
   
-	<EventInfos an_event={props.an_event}/>
-  </div>
+`;
+const EventInfoContainer = (props) => (
+ <Title>
+ <EventInfos an_event={props.an_event}/>
+ </Title>
+  
+	
+
 );
 
 EventInfoContainer.propTypes = {};

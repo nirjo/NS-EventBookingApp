@@ -1,5 +1,5 @@
 .EventList {
-	border:1px solid black;
+	/* border:1px solid black; */
 	/* for flex box start*/
 	  display: grid;
   grid-template-columns: auto auto auto auto;
@@ -11,7 +11,7 @@
 }
 @media only screen and (max-device-width: 480px) {
 .EventList {
-	border:1px solid black;
+	/* border:1px solid black; */
 	/* for flex box start*/
 	  display: grid;
   grid-template-columns: auto ;
