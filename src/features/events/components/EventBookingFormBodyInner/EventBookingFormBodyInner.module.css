@@ -1,5 +1,5 @@
 .EventBookingFormBodyInner {
 	display: flex;
   flex-wrap: nowrap;
-	/* border:1px solid black; */
+ border:1px solid black; 
 }
