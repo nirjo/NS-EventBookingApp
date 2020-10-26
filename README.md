@@ -1,3 +1,13 @@
+## follow these steps to download and run the application in this directory:
+
+
+## follow these steps to download and run the application in this directory:
+# $ git clone https://github.com/nirjo/NS-EventBookingApp.git
+
+# $ npm start
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
